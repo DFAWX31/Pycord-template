@@ -1,6 +1,5 @@
 import pathlib
 
-from numpy import full
 import settings
 import discord
 from discord.ext import bridge
@@ -24,13 +23,13 @@ async def _load_cogs(bot):
 
 	for path in paths:
 		# trim = str(path).replace(str(cogs_dir), "")
-        # trim = trim.replace(".py", "")
-        # main_path = "cogs" + trim.replace("\\", ".")
-        # print(main_path)
-        main_path = (
-            str(path).replace("/", ".").replace(".app.src.", "").replace(".py", "")
-        )  # comment this and uncomment above 4 lines to run on windows
-        bot.load_extension(main_path)
+		# trim = trim.replace(".py", "")
+		# main_path = "cogs" + trim.replace("\\", ".")
+		main_path = (
+			str(path).replace("/", ".").replace(".app.src.", "").replace(".py", "")
+		)  # comment this and uncomment above 4 lines to run on windows
+		# print(main_path)
+		bot.load_extension(main_path)
 
 async def create_app():
 	intents = discord.Intents.default()
